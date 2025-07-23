@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockfort Robotics - Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body::-webkit-scrollbar,
+        .slide-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        body,
+        .slide-container {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            margin: 0;
+            /* Ensure no default body margin interferes with full-page slides */
+        }
+
+        .slide-container {
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            overflow-y: auto;
+            /* Allow scrolling for content overflow on small screens */
+            scroll-snap-type: y mandatory;
+            /* Snap scrolling for slides */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide {
+            width: 100%;
+            min-height: 100vh;
+            /* Each slide takes full viewport height */
+            padding: 40px 5%;
+            /* Responsive padding */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            scroll-snap-align: start;
+            /* Snap to the start of each slide */
+            position: relative;
+            box-sizing: border-box;
+            /* Ensure padding doesn't add to height for 100vh */
+        }
+
+        .slide-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .slide-content {
+            max-width: 1000px;
+            /* Max width for content */
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            /* Responsive font size */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+            /* Dark gray */
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2d3748;
+            /* Medium gray */
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+            /* Lighter gray */
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+            /* Base font size */
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        ul {
+            list-style-position: inside;
+            text-align: left;
+            padding-left: 0;
+            /* Tailwind might add padding, ensure it's reset if needed */
+        }
+
+        .highlight {
+            color: #2563eb;
+            /* Blue highlight */
+            font-weight: 600;
+        }
+
+        .accent-bg {
+            background-color: #2563eb;
+            /* Blue */
+        }
+
+        .accent-text {
+            color: #2563eb;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* Standard Tailwind shadow-lg */
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .grid-cols-auto {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .logo-placeholder {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px dashed #cbd5e0;
+            border-radius: 8px;
+            background-color: #f7fafc;
+            color: #718096;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .nav-button {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.1rem;
+            }
+
+            p,
+            li {
+                font-size: 0.95rem;
+            }
+
+            .slide {
+                padding: 30px 5%;
+            }
+
+            .nav-buttons {
+                bottom: 15px;
+                gap: 10px;
+            }
+
+            .nav-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .slide {
+                padding: 20px 5%;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+
+        .metric-card {
+            background-color: #f0f9ff;
+            border-left: 5px solid #2563eb;
+        }
+
+        .value-emphasis {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        /* Spinner for loading state */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2563eb;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---------------- New / Updated styles for Ask Slide ---------------- */
+        .investment-ask {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ask-amount {
+            font-size: 2.4rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .ask-equity {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        @media (min-width: 768px) {
+            .investment-ask {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .investment-ask i {
+                margin-right: 24px;
+                margin-bottom: 0;
+            }
+
+            .ask-amount {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50">
+
+    <div class="slide-container">
+
+        <section id="slide1" class="slide bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+            <div class="slide-content text-center">
+                <img src="assets/rockfort-logo.png" alt="Rockfort Robotics Logo" class="mx-auto mb-8 shadow-lg" style="width: 150px; height: 150px;" onerror="this.src='https://placehold.co/150x150/cccccc/333333?text=Image+Error'">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4" style="color: white;">Rockfort Robotics</h1>
+                <p class="text-xl md:text-2xl mb-8 text-indigo-200 text-center">Intelligent Robots for In-Aisle Warehouse SKU Picking & Restocking</p>
+                <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="https://www.youtube.com/watch?v=Mzhe6wYBsKY" target="_blank" class="inline-flex items-center px-5 py-2.5 bg-white text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-indigo-100 transition">
+                        <i class="fab fa-youtube mr-2 text-red-600 text-lg"></i> Watch Prototype Demo
+                    </a>
+                    <a href="https://rockfortrobotics.com" target="_blank" class="inline-flex items-center px-5 py-2.5 bg-white text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-indigo-100 transition">
+                        <i class="fas fa-globe mr-2 text-blue-600 text-lg"></i> Visit Website
+                    </a>
+                </div>
+            </div>
+            <div class="slide-footer text-indigo-300">1</div>
+        </section>
+
+        <section id="slide2" class="slide">
+            <div class="slide-header">The Problem</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-10">Warehouses Face Critical Challenges</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <h3 class="flex items-center"><i class="fas fa-dollar-sign fa-fw mr-3 accent-text text-2xl"></i>High Labor Costs</h3>
+                        <p>Manual picking is labor-intensive, increasingly expensive due to rising wages, and faces a growing shortage of available workers.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="flex items-center"><i class="fas fa-warehouse fa-fw mr-3 accent-text text-2xl"></i>Space Inefficiency</h3>
+                        <p>Limited vertical reach by human pickers restricts storage density, forcing larger, costlier warehouses.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="flex items-center"><i class="fas fa-chart-line fa-fw mr-3 accent-text text-2xl"></i>Scaling Difficulties</h3>
+                        <p>Hard to scale due to workforce hiring, training, and management challenges.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="flex items-center"><i class="fas fa-map-marker-alt fa-fw mr-3 accent-text text-2xl"></i>Big Market Gap</h3>
+                        <p>No cost-effective and simple automation solution for small and medium sized warehouses.</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-center text-gray-700"><strong>Our solution:</strong> Cut labor costs by 5x, double storage density, enable effortless scaling—<strong>while prioritizing human dignity</strong>.</p>
+            </div>
+            <div class="slide-footer">2</div>
+        </section>
+
+        <section id="slide3" class="slide bg-blue-50">
+            <div class="slide-header">Our Solution</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-6">Introducing Tallboy: India's first robot capable of In-Aisle SKU picking, built for the world</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Left: Enlarged Image + Demo link -->
+                    <div class="flex flex-col items-center justify-center space-y-6">
+                        <img src="assets/tallboy-robot-concept-1.png" alt="Tallboy Robot Prototype" class="rounded-lg shadow-xl w-full max-w-3xl" style="height:auto;" onerror="this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Error'">
+                        <a href="https://www.youtube.com/watch?v=Mzhe6wYBsKY" target="_blank" class="inline-flex items-center font-semibold accent-text hover:underline">
+                            <i class="fab fa-youtube mr-2 text-red-600"></i>Watch Our Prototype Demo
+                        </a>
+                    </div>
+                    <!-- Right: Features list -->
+                    <div class="flex flex-col justify-center max-w-md w-full mx-auto space-y-4">
+                        <ul class="space-y-4">
+                            <li class="card flex items-center p-4 hover:shadow-lg transition">
+                                <i class="fas fa-check-circle mr-3 accent-text"></i>First mobile manipulator robot designed and made in India
+                            </li>
+                            <li class="card flex items-center p-4 hover:shadow-lg transition">
+                                <i class="fas fa-check-circle mr-3 accent-text"></i>Reduce operating cost by 5x and double the storage density
+                            </li>
+                            <li class="card flex items-center p-4 hover:shadow-lg transition">
+                                <i class="fas fa-check-circle mr-3 accent-text"></i>1 robot replaces ~3 warehouse workers (across 3 shifts)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">3</div>
+        </section>
+
+        <section id="slide4" class="slide">
+            <div class="slide-header">Why Now?</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-10">Perfect Technology & Market Timing</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-brain mr-2"></i>AI Breakthroughs</h3>
+                        <p>Foundation models (SAM, GR00T, RT-2) enable next-gen robot intelligence</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-code-branch mr-2"></i>Open Source Tools</h3>
+                        <p>LeRobot, ROS 2 accelerate development & cut costs dramatically</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-cogs mr-2"></i>Advanced Simulation</h3>
+                        <p>Isaac Sim enables 100x faster training with advanced physics using GPUs</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-store mr-2"></i>Q-Commerce Boom</h3>
+                        <p>Micro-warehouses & dark stores create ideal beach head market</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-globe-americas mr-2"></i>Robotics Wave</h3>
+                        <p>Impending Global "ChatGPT moment" for robots driving mass adoption</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent-text"><i class="fas fa-flag mr-2"></i>India Policy Support</h3>
+                        <p>Government backing deep-tech innovation & manufacturing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">4</div>
+        </section>
+
+        <section id="slide5" class="slide bg-gray-100">
+            <div class="slide-header">Market Size (RaaS Model)</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-10">A Significant Global Opportunity</h2>
+                <div class="grid md:grid-cols-3 gap-6 mb-8 text-center">
+                    <div class="card p-6">
+                        <h3 class="text-2xl font-bold text-green-700">USA</h3>
+                        <p class="text-4xl font-bold my-3">$6B<span class="text-xl font-normal">/year</span></p>
+                        <p class="text-sm text-gray-600">1M pickers | $6K/picker/year</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-2xl font-bold text-purple-700">Europe</h3>
+                        <p class="text-4xl font-bold my-3">$6B<span class="text-xl font-normal">/year</span></p>
+                        <p class="text-sm text-gray-600">1M pickers | $6K/picker/year</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="text-2xl font-bold text-blue-700">India</h3>
+                        <p class="text-4xl font-bold my-3">$1.6B<span class="text-xl font-normal">/year</span></p>
+                        <p class="text-sm text-gray-600">1.5M pickers | ₹8K/picker/month</p>
+                    </div>
+                </div>
+                <div class="text-center space-y-4">
+                    <p class="text-2xl font-semibold">Total Addressable Market (TAM): <span class="highlight text-3xl">~$13.6B / year</span></p>
+                    <p class="text-xl">Serviceable Addressable Market (SAM): <span class="highlight text-2xl">~$1.36B / year</span></p>
+                    <p class="text-lg">Serviceable Obtainable Market (SOM): <span class="highlight text-xl">~$100M / year (Next 5 Years) - We just need 5,600 robots in the field to reach this.</span></p>
+                </div>
+            </div>
+            <div class="slide-footer">5</div>
+        </section>
+
+        <section id="slide7" class="slide bg-gray-100">
+            <div class="slide-header">Our Edge</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-10">What Makes Rockfort Robotics Unique?</h2>
+                <div class="grid grid-cols-auto gap-6">
+                    <div class="card p-5 text-center hover:shadow-xl transition-shadow">
+                        <i class="fas fa-microchip text-4xl accent-text mb-3"></i>
+                        <h3 class="text-lg font-semibold">Low Hardware Costs</h3>
+                        <p class="text-sm">Designed and manufactured in India with access to cheap manufacturing.</p>
+                    </div>
+                    <div class="card p-5 text-center hover:shadow-xl transition-shadow">
+                        <i class="fas fa-flask text-4xl accent-text mb-3"></i>
+                        <h3 class="text-lg font-semibold">AI first Robotics</h3>
+                        <p class="text-sm">Leveraging breakthroughs in AI (e.g., Meta's SAM), to work in complex environments.</p>
+                    </div>
+                    <div class="card p-5 text-center hover:shadow-xl transition-shadow">
+                        <i class="fas fa-plug text-4xl accent-text mb-3"></i>
+                        <h3 class="text-lg font-semibold">Minimal Infrastructure</h3>
+                        <p class="text-sm">Operates with standardized crates/shelves, no need for costly warehouse retrofitting.</p>
+                    </div>
+                    <div class="card p-5 text-center hover:shadow-xl transition-shadow">
+                        <i class="fas fa-expand-arrows-alt text-4xl accent-text mb-3"></i>
+                        <h3 class="text-lg font-semibold">Versatile & Scalable</h3>
+                        <p class="text-sm">Designed for warehouses of all sizes, including smaller ones (2,500–5,000 sq. ft.).</p>
+                    </div>
+                    <div class="card p-5 text-center hover:shadow-xl transition-shadow col-span-full md:col-span-1 lg:col-span-1 xl:col-span-2">
+                        <i class="fas fa-robot text-4xl accent-text mb-3"></i>
+                        <h3 class="text-lg font-semibold">End-to-End Automation</h3>
+                        <p class="text-sm">Advanced AI vision-based SKU picking with a robotic hand, minimizing human intervention.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">7</div>
+        </section>
+
+        <!-- <section id="slide8" class="slide">
+            <div class="slide-header">Competitive Landscape</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-8">Navigating the Market</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="mb-3">Key Insights (64 Companies Analyzed)</h3>
+                        <ul class="list-none space-y-3">
+                            <li class="card metric-card p-3"><span class="font-semibold">9 / 64</span> work on AI-based robotic SKU picking.</li>
+                            <li class="card metric-card p-3"><span class="font-semibold">15 / 64</span> work with minimal infrastructure.</li>
+                            <li class="card metric-card p-3"><span class="font-semibold">4 / 64</span> have low hardware costs.</li>
+                            <li class="card bg-red-100 border-l-4 border-red-500 p-3"><span class="font-semibold text-red-700">0 / 64</span> match all attributes required for our target market.</li>
+                        </ul>
+                        <p class="mt-4 text-sm"><em>Detailed Report: <a href="https://docs.google.com/document/d/1r0AJg4rgpgijRyHvj-HUofBqEbavstarpBwGD3jVb_E/edit?tab=t.0" class="text-blue-600 hover:underline">Competitor Analysis Report</a></em></p>
+                    </div>
+                    <div>
+                        <h3 class="mb-3">Primary Competitor: Brightpick</h3>
+                        <div class="card">
+                            <p><a href="https://brightpick.ai/" target="_blank" class="text-blue-600 hover:underline">Brightpick</a> offers a similar in-aisle picking product.</p>
+                            <p class="mt-2"><strong>However:</strong></p>
+                            <ul class="list-disc pl-5 mt-1 text-sm">
+                                <li>They have only deployed around 300 robots in total, which is a drop in the ocean.</li>
+                                <li>They claim they cannot keep up with demand, validating the need.</li>
+                            </ul>
+                        </div>
+                        <p class="mt-4 text-sm">Other potential competitors (e.g., Hand Plus Robotics, RightHand Robotics) exist but don't fully align with our specific USPs.</p>
+                    </div>
+                </div>
+                <p class="text-center mt-8 font-semibold">Our analysis shows a clear opportunity for a cost-effective, advanced solution tailored for India and similar markets.</p>
+            </div>
+            <div class="slide-footer">8</div>
+        </section> -->
+
+                <!-- <section id="slide8" class="slide">
+            <div class="slide-header">Competitive Landscape</div>
+            <div class="slide-content w-full">
+                <h2 class="text-center mb-6">A Crowded But Fragmented Market with a Clear Opening</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">The warehouse automation market is booming, with over 50 AMR vendors alone. However, most solutions are either too expensive, require massive infrastructure changes, or don't solve the critical in-aisle SKU picking problem. This leaves a significant gap for a flexible, AI-driven, and cost-effective solution like Rockfort.</p>
+                <div class="grid lg:grid-cols-3 gap-5">
+                    <div class="card flex flex-col">
+                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-truck-loading mr-2 accent-text"></i>AMR & SLAM Leaders</h3>
+                        <p class="text-sm font-semibold">Ex: Amazon Robotics, Locus, Fetch (Zebra), Clearpath</p>
+                        <div class="mt-2 flex-grow">
+                            <p class="text-sm">These companies excel at "goods-to-person" transport, moving shelves or pallets. Amazon, for instance, has deployed over 750,000 robots to cut picking times.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-dashed">
+                            <h4 class="font-bold text-green-600">Our Edge:</h4>
+                            <p class="text-sm mt-1">They don't pick individual items from shelves. Rockfort provides the missing piece: intelligent <span class="font-semibold">in-aisle SKU picking</span> that integrates with existing layouts without costly overhauls.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card flex flex-col">
+                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-cubes mr-2 accent-text"></i>High-Density AS/RS</h3>
+                        <p class="text-sm font-semibold">Ex: Exotec, Hai Robotics</p>
+                        <div class="mt-2 flex-grow">
+                            <p class="text-sm">These systems offer incredible density and efficiency (up to 99.9% accuracy). Hai Robotics has shown a 67% reduction in labor costs with its solutions.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-dashed">
+                            <h4 class="font-bold text-green-600">Our Edge:</h4>
+                            <p class="text-sm mt-1">Their strength requires a weakness: massive upfront investment and proprietary infrastructure (bins, racks). Rockfort is <span class="font-semibold">infrastructure-light</span>, making it accessible for SMEs and pilots.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card flex flex-col">
+                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-eye mr-2 accent-text"></i>Vision AI Specialists</h3>
+                        <p class="text-sm font-semibold">Ex: Vecna, Gather AI, RightHand</p>
+                        <div class="mt-2 flex-grow">
+                            <p class="text-sm">These companies pioneer advanced perception for robotics. Gather AI's drones, for example, save clients over $250,000 annually on inventory audits alone.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-dashed">
+                            <h4 class="font-bold text-green-600">Our Edge:</h4>
+                            <p class="text-sm mt-1">They often provide a component (the vision system) or a single-task solution (inventory). Rockfort offers a <span class="font-semibold">fully integrated end-to-end robot</span> that combines navigation, perception, and manipulation at a disruptive price point.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center p-4 bg-blue-50 rounded-lg">
+                    <p class="font-semibold text-gray-800">Conclusion: While many players address parts of the problem, <span class="accent-text">no competitor matches our unique blend</span> of low-cost hardware, AI-first SKU picking, and a minimal-infrastructure approach, creating a clear and defensible market opportunity.</p>
+                </div>
+            </div>
+            <div class="slide-footer">8</div>
+        </section> -->
+
+        <section id="slide8" class="slide">
+    <div class="slide-header">Competitive Landscape</div>
+    <div class="slide-content w-full">
+        <h2 class="text-center mb-4">A Clear Opening in a Crowded Market</h2>
+        <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">
+            The warehouse automation market has many players, but they only solve <em>part</em> of the problem. Solutions are often too expensive, disruptive, or incomplete, leaving a clear gap.
+        </p>
+
+        <div class="overflow-x-auto shadow-lg rounded-lg">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-50">
+                    <tr class="border-b-2 border-gray-300">
+                        <th class="p-3 text-sm font-semibold tracking-wider text-left"></th>
+                        <th class="p-3 text-sm font-semibold tracking-wider text-center">AMR & SLAM Leaders<br><span class="font-normal text-xs text-gray-500">(e.g., Locus, Fetch)</span></th>
+                        <th class="p-3 text-sm font-semibold tracking-wider text-center">High-Density AS/RS<br><span class="font-normal text-xs text-gray-500">(e.g., Exotec, Hai)</span></th>
+                        <th class="p-3 text-sm font-semibold tracking-wider text-center">Vision AI Specialists<br><span class="font-normal text-xs text-gray-500">(e.g., RightHand)</span></th>
+                        <th class="p-3 text-sm font-semibold tracking-wider text-center bg-blue-100 border-l border-gray-300">Rockfort Robotics</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 font-semibold align-top bg-gray-50 w-1/5">What They Do</td>
+                        <td class="p-3 align-top text-sm">Move shelves to people<br><em class="text-xs">(Goods-to-Person)</em></td>
+                        <td class="p-3 align-top text-sm">High-density bin retrieval<br><em class="text-xs">(Goods-to-Person)</em></td>
+                        <td class="p-3 align-top text-sm">Provide AI "eyes" & "hands" as components</td>
+                        <td class="p-3 align-top font-semibold text-blue-800 bg-blue-50 border-l border-gray-300">Picks items directly from existing shelves<br><em class="text-sm font-bold">(End-to-End SKU Picking)</em></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 font-semibold align-top bg-gray-50">Key Weakness</td>
+                        <td class="p-3 align-top text-sm text-red-700"><strong>Cannot pick individual items.</strong> Requires humans for the final step.</td>
+                        <td class="p-3 align-top text-sm text-red-700"><strong>Extremely high cost.</strong> Requires a complete warehouse overhaul.</td>
+                        <td class="p-3 align-top text-sm text-red-700"><strong>Not a complete robot.</strong> Sells a piece of the puzzle, not the whole solution.</td>
+                        <td class="p-3 align-top text-sm text-green-700 bg-blue-50 border-l border-gray-300"><strong>A fully integrated, cost-effective solution.</strong></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-3 font-semibold align-top bg-gray-50">Our Advantage</td>
+                        <td class="p-3 align-top text-sm">We automate the most labor-intensive task: <strong>in-aisle picking.</strong></td>
+                        <td class="p-3 align-top text-sm">We are <strong>infrastructure-light</strong>, deploying with minimal changes.</td>
+                        <td class="p-3 align-top text-sm">We provide a <strong>complete, end-to-end robot</strong> at a disruptive price.</td>
+                        <td class="p-3 align-top text-sm font-semibold text-blue-800 bg-blue-50 border-l border-gray-300">The only solution that is low-cost, flexible, and fully autonomous.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-8 text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p class="font-semibold text-gray-800">
+                <span class="accent-text">The Bottom Line:</span> No competitor matches our unique blend of low-cost hardware, AI-first picking, and a minimal-infrastructure approach, creating a clear and defensible market opportunity.
+            </p>
+        </div>
+    </div>
+    <div class="slide-footer">8</div>
+</section>
+
+
+        <section id="slide9" class="slide bg-blue-50">
+            <div class="slide-header">Business Model</div>
+            <div class="slide-content text-center">
+                <h2 class="mb-10">Robot as a Service (RaaS)</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="card p-8 md:w-1/3 transform hover:scale-105 transition-transform">
+                        <i class="fas fa-hand-holding-usd text-5xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold">Upfront Cost</h3>
+                        <p class="text-3xl font-bold my-2">$0</p>
+                        <p class="text-sm text-gray-600">Per Robot</p>
+                    </div>
+                    <div class="card p-8 md:w-1/3 transform hover:scale-105 transition-transform">
+                        <i class="fas fa-redo-alt text-5xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold">Monthly Recurring</h3>
+                        <p class="text-3xl font-bold my-2">$1,500</p>
+                        <p class="text-sm text-gray-600">Per Robot / Month</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-lg">This model ensures affordability for customers, predictable revenue for Rockfort Robotics, and aligns incentives for ongoing service and upgrades.</p>
+            </div>
+            <div class="slide-footer">9</div>
+        </section>
+
+        <!-- ====== START: SLIDE 10 (Unit Economics) ====== -->
+        <section id="slide10" class="slide">
+            <div class="slide-header">Unit Economics (Per Robot, 10‑Year Lifetime)</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-8">Strong Profitability & Margins</h2>
+                <p class="text-center mb-6 text-sm">(Calculations with 6 % discount rate for time &amp; inflation adjustment)</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Adjusted Costs -->
+                    <div class="card">
+                        <h3 class="text-red-600"><i class="fas fa-arrow-down mr-2"></i>Total Adjusted&nbsp;Costs</h3>
+                        <p class="value-emphasis text-red-700">₹35.72 Lakhs</p>
+                        <p class="text-xs mt-1">Manufacturing: ₹20 L • Other: ₹1 L • Servicing: PV of ₹2 L / yr for 10 yrs</p>
+                    </div>
+                    <!-- Adjusted Income -->
+                    <div class="card">
+                        <h3 class="text-green-600"><i class="fas fa-arrow-up mr-2"></i>Total Adjusted&nbsp;Income</h3>
+                        <p class="value-emphasis text-green-700">₹1.14 Crore</p>
+                        <p class="text-xs mt-1">Recurring: PV of&nbsp;$18 K / yr for 10 yrs</p>
+                    </div>
+                    <!-- Key Metrics -->
+                    <div class="card md:col-span-2 bg-indigo-50 border-indigo-500 border-l-4">
+                        <h3 class="text-indigo-700"><i class="fas fa-chart-pie mr-2"></i>Key Financial Metrics</h3>
+                        <div class="grid sm:grid-cols-2 gap-4 mt-3">
+                            <div>
+                                <p class="font-semibold">Profit / Robot (Adjusted):</p>
+                                <p class="value-emphasis text-indigo-800">₹78.21 Lakhs</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Gross Margin (Adjusted):</p>
+                                <p class="value-emphasis text-indigo-800">68.65 %</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center mt-6 text-sm"><em>Detailed Calculations: <a href="https://docs.google.com/document/d/10xvV0sGXIXpDC-_mnoGKEdViXwn5EjBePxjrrK-wAxg/edit?usp=sharing" class="text-blue-600 hover:underline">Unit Economics & Customer Savings – Rockfort Robotics</a></em></p>
+            </div>
+            <div class="slide-footer">10</div>
+        </section>
+        <!-- ====== END: SLIDE 10 ====== -->
+
+        <!-- ====== START: SLIDE 11 (Customer Value Proposition) ====== -->
+        <section id="slide11" class="slide bg-green-50">
+            <div class="slide-header">Customer Value Proposition</div>
+            <div class="slide-content text-center">
+                <h2 class="mb-10 text-green-700">Significant Cost Savings &amp; ROI</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Payback -->
+                    <div class="card p-6 border-t-4 border-green-500">
+                        <i class="fas fa-undo text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold">Payback&nbsp;Period</h3>
+                        <p class="text-3xl font-bold my-2 text-green-700">0&nbsp;Months</p>
+                        <p class="text-sm text-gray-600">Time to recover robot cost.</p>
+                    </div>
+                    <!-- Annual Net Saving -->
+                    <div class="card p-6 border-t-4 border-green-500">
+                        <i class="fas fa-chart-line text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold">Annual Net Saving</h3>
+                        <p class="text-3xl font-bold my-2 text-green-700">$103.5 K</p>
+                        <p class="text-sm text-gray-600">Per robot after all running costs.</p>
+                    </div>
+                    <!-- 10‑Year Net Saving -->
+                    <div class="card p-6 border-t-4 border-green-500">
+                        <i class="fas fa-piggy-bank text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold">10‑Year Net Saving</h3>
+                        <p class="text-3xl font-bold my-2 text-green-700">$58 M</p>
+                        <p class="text-sm text-gray-600">56 robots automating one warehouse.</p>
+                    </div>
+                </div>
+                <div class="mt-8 card bg-white p-6">
+                    <p class="text-lg mb-2"><i class="fas fa-users-cog mr-2 text-green-600"></i><strong>1 Robot replaces 3 workers</strong> (across 3 shifts).</p>
+                    <p class="text-lg"><i class="fas fa-percent mr-2 text-green-600"></i><strong>~ 4.28× drop in labour spend</strong> from Day 1.</p>
+                    <p class="text-lg mt-2">Pure savings from day 1 with RaaS.</p>
+                </div>
+                <p class="text-center mt-6 text-sm"><em>Detailed Analysis: <a href="https://docs.google.com/document/d/10xvV0sGXIXpDC-_mnoGKEdViXwn5EjBePxjrrK-wAxg/edit?usp=sharing" class="text-blue-600 hover:underline">Unit Economics & Customer Savings – Rockfort Robotics</a></em></p>
+            </div>
+            <div class="slide-footer">11</div>
+        </section>
+        <!-- ====== END: SLIDE 11 ====== -->
+
+        <section id="slide12" class="slide">
+            <div class="slide-header">Traction & Pipeline</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-8">Strong Initial Interest from Industry Leaders</h2>
+                <p class="text-center mb-6">We have demoed our prototype and are in discussions for pilots:</p>
+                <div class="flex flex-wrap justify-center items-center gap-8 mb-8">
+                    <div class="logo-placeholder p-4 text-center">
+                        <img src="assets/delhivery-logo.png" alt="Delhivery Logo" class="h-16 w-auto mb-2 mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/80x80/ffffff/333333?text=Delhivery'; this.classList.add('rounded')"><br />
+                        Delhivery<br /><span class="text-xs">(Pilot discussions)</span>
+                    </div>
+                    <div class="logo-placeholder p-4 text-center">
+                        <img src="assets/Flipkart-logo.jpg" alt="Flipkart Logo" class="h-16 w-auto mb-2 mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/80x80/ffffff/333333?text=Flipkart'; this.classList.add('rounded')"><br />
+                        Flipkart<br /><span class="text-xs">(Pilot discussions)</span>
+                    </div>
+                    <div class="logo-placeholder p-4 text-center">
+                        <img src="assets/DoorDash-Logo.png" alt="DoorDash Logo" class="h-16 w-auto mb-2 mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/80x80/ffffff/333333?text=DoorDash'; this.classList.add('rounded')"><br />
+                        DoorDash<br /><span class="text-xs">(Pilot discussions)</span>
+                    </div>
+                </div>
+                <ul class="list-disc pl-5 space-y-2 text-sm">
+                    <li><strong>Delhivery:</strong> Discussed with VP of Automation, their team visited; ready for pilots.</li>
+                    <li><strong>Flipkart:</strong> Director of Automation saw demo; open to pilot, Malur FC visited.</li>
+                    <li><strong>DoorDash:</strong> Early discussions for their Europe dark stores automation.</li>
+                </ul>
+            </div>
+            <div class="slide-footer">12</div>
+        </section>
+
+        <section id="slide13" class="slide">
+            <div class="slide-content" style="max-width: 1200px; padding: 0 20px;">
+                <h2 class="text-center mb-6">Experienced Founders with a Track Record</h2>
+                <!-- Team Members Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="card text-center p-4 hover:shadow-xl transition-shadow duration-300">
+                        <img src="assets/arivind.jpg" alt="Arivind Krishnan" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md" onerror="this.src='https://placehold.co/96x96/2563eb/ffffff?text=AK'">
+                        <h3 class="text-lg font-bold mb-1 text-gray-800">Arivind Krishnan</h3>
+                        <p class="text-base accent-text font-semibold mb-2">CEO & Co-Founder</p>
+                        <p class="text-xs font-medium text-gray-600 mb-2">Product and Business</p>
+                        <div class="text-xs text-gray-600 space-y-1 mb-3">
+                            <p><span class="font-semibold">Ex:</span> ShopUP, WholesaleX, Voonik</p>
+                            <p><span class="font-semibold">Edu:</span> EEE - Mepco</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/arivindkrishnan-r-79478379/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-xs font-semibold">
+                            <i class="fab fa-linkedin mr-1"></i>LinkedIn
+                        </a>
+                    </div>
+                    <div class="card text-center p-4 hover:shadow-xl transition-shadow duration-300">
+                        <img src="assets/abhishek.jpg" alt="Abhishek Ramnath" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md" onerror="this.src='https://placehold.co/96x96/2563eb/ffffff?text=AR'">
+                        <h3 class="text-lg font-bold mb-1 text-gray-800">Abhishek Ramnath</h3>
+                        <p class="text-base accent-text font-semibold mb-2">CTO & Co-Founder</p>
+                        <p class="text-xs font-medium text-gray-600 mb-2">AI, Software & Electronics</p>
+                        <div class="text-xs text-gray-600 space-y-1 mb-3">
+                            <p><span class="font-semibold">Ex:</span> ShopUP, WholesaleX, Qualcomm</p>
+                            <p><span class="font-semibold">Edu:</span> EEE - BITS Hyderabad</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/abhishek-ramnath-91a80aa2/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-xs font-semibold">
+                            <i class="fab fa-linkedin mr-1"></i>LinkedIn
+                        </a>
+                    </div>
+                    <div class="card text-center p-4 hover:shadow-xl transition-shadow duration-300">
+                        <img src="assets/praveen.jpg" alt="Praveen Kumar" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md" onerror="this.src='https://placehold.co/96x96/2563eb/ffffff?text=PK'">
+                        <h3 class="text-lg font-bold mb-1 text-gray-800">Praveen Kumar</h3>
+                        <p class="text-base accent-text font-semibold mb-2">Head of Hardware & Co-Founder</p>
+                        <p class="text-xs font-medium text-gray-600 mb-2">Design & Electronics</p>
+                        <div class="text-xs text-gray-600 space-y-1 mb-3">
+                            <p><span class="font-semibold">Ex:</span> Arrival Ltd UK, Phoenix Medical</p>
+                            <p><span class="font-semibold">Edu:</span> M.Des @ NID, EEE - SASTRA</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/praveen-kumar-s-264a82a2/" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-xs font-semibold">
+                            <i class="fab fa-linkedin mr-1"></i>LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <!-- Key Achievements Grid -->
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="card bg-green-50 border-l-4 border-green-500 p-4">
+                        <h3 class="text-green-700 mb-2 text-sm font-bold flex items-center">
+                            <i class="fas fa-trophy mr-2"></i>Successful Exit
+                        </h3>
+                        <p class="text-xs">Arivind & Abhishek built and sold <strong>WholesaleX</strong> to ShopUP for <strong>$500K USD</strong>.</p>
+                    </div>
+                    <div class="card bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <h3 class="text-blue-700 mb-2 text-sm font-bold flex items-center">
+                            <i class="fas fa-users mr-2"></i>Deep Relationships
+                        </h3>
+                        <p class="text-xs">Arivind and Abhishek are brothers. Praveen & Abhishek are classmates.</p>
+                    </div>
+                    <div class="card bg-purple-50 border-l-4 border-purple-500 p-4">
+                        <h3 class="text-purple-700 mb-2 text-sm font-bold flex items-center">
+                            <i class="fas fa-robot mr-2"></i>Robotics Experience
+                        </h3>
+                        <p class="text-xs">Built robots together, bringing complementary expertise.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">13</div>
+        </section>
+
+        <section id="slide14" class="slide bg-gradient-to-br from-indigo-700 to-blue-800 text-white">
+            <div class="slide-header text-indigo-200">Our Vision</div>
+            <div class="slide-content">
+                <h2 class="text-center mb-10 text-white" style="text-shadow: 0 2px 4px rgba(0,0,0,0.2);">Shaping the Future of Robotics</h2>
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="card bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 hover:bg-white/15 transition-all transform hover:-translate-y-1 hover:shadow-xl duration-300" style="border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-chart-line text-4xl mb-3" style="color: #c4b5fd;"></i>
+                            <h3 class="text-xl font-semibold text-white">Years 1-3: Ubiquitous Tallboy</h3>
+                        </div>
+                        <p class="text-white opacity-90">Dominate individual SKU picking/restocking in US, Europe. Setting the standard for warehouse automation across markets.</p>
+                    </div>
+                    <div class="card bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 hover:bg-white/15 transition-all transform hover:-translate-y-1 hover:shadow-xl duration-300" style="border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-robot text-4xl mb-3" style="color: #a5b4fc;"></i>
+                            <h3 class="text-xl font-semibold text-white">Years 3-5: Intelligent Dexterous Robots</h3>
+                        </div>
+                        <p class="text-white opacity-90">Expand to complex tasks (electronics assembly, merchandising) using advanced AI (Foundation Models, NVIDIA Omniverse/Isaac Lab, GR00T/OpenVLA).</p>
+                    </div>
+                    <div class="card bg-white/10 backdrop-blur-sm border border-white/20 text-white p-6 hover:bg-white/15 transition-all transform hover:-translate-y-1 hover:shadow-xl duration-300" style="border-radius: 16px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-home text-4xl mb-3" style="color: #93c5fd;"></i>
+                            <h3 class="text-xl font-semibold text-white">Beyond 5 Years: General-Purpose Household Robots</h3>
+                        </div>
+                        <p class="text-white opacity-90">Deliver real value in homes by tackling messy environments with advanced simulation and robot foundation models.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer text-indigo-300">14</div>
+        </section>
+
+        <!-- ========= Updated Ask Slide ========= -->
+        <section id="slide15" class="slide bg-white">
+            <div class="slide-header text-gray-600">The Ask</div>
+            <div class="slide-content">
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <!-- Ask Box -->
+                    <div class="investment-ask text-center md:text-left">
+                        <i class="fas fa-rocket text-5xl md:text-6xl mb-4 md:mb-0"></i>
+                        <div>
+                            <h1 class="ask-amount">₹75 Lakhs</h1>
+                            <p class="ask-equity">for 5 % Equity <span class="opacity-80">(Negotiable)</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Cap Table (Investment Context) -->
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-sm border border-purple-200 card md:mt-0">
+                        <h3 class="text-base font-bold text-purple-700 mb-3 flex items-center">
+                            <i class="fas fa-chart-pie mr-2"></i>Cap Table
+                        </h3>
+                        <div class="text-sm text-gray-700 space-y-2">
+                            <p><strong>Raised:</strong> ₹52.25 L</p>
+                            <p><strong>From:</strong> Friends & Family</p>
+                            <p class="mt-3 text-xs"><em>Detailed Cap Table: <a href="https://docs.google.com/spreadsheets/d/1eIHw920jnX4PogOyXDBMaJskl8VcRR9jSk848qX45fc/edit?usp=sharing" class="text-purple-600 hover:underline">View Full Breakdown</a></em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer text-gray-600">15</div>
+        </section>
+
+        <!-- ====== Slide 16 (Execution & Contact) – REPLACE existing block ====== -->
+        <section id="slide16" class="slide bg-gray-50">
+            <div class="slide-header text-gray-500">Execution &amp; Contact</div>
+
+            <div class="slide-content max-w-5xl w-full">
+                <h2 class="text-center mb-12 text-2xl md:text-3xl font-semibold text-gray-800">
+                    Execution Plan &amp; Use of Funds
+                </h2>
+
+                <div class="grid gap-8 md:grid-cols-2">
+                    <!-- Use of Funds -->
+                    <div class="card p-8 border-t-4 border-green-600">
+                        <h3 class="text-xl font-semibold mb-6 text-green-700 flex items-center">
+                            <i class="fas fa-coins fa-fw mr-3"></i>Use&nbsp;of&nbsp;Funds
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">Hardware Components</span>
+                                <span class="font-bold text-green-800">₹30 L</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">2 Robotics Engineers</span>
+                                <span class="font-bold text-green-800">₹20 L</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">Founder Salary</span>
+                                <span class="font-bold text-green-800">₹10 L</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">Model Warehouse Setup</span>
+                                <span class="font-bold text-green-800">₹3 L</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">Warehouse & Office Rent &amp; Utilities</span>
+                                <span class="font-bold text-green-800">₹3 L</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="font-medium text-gray-700">Miscellaneous</span>
+                                <span class="font-bold text-green-800">₹4 L</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline & Milestones -->
+                    <div class="card p-8 border-t-4 border-blue-600">
+                        <h3 class="text-xl font-semibold mb-6 text-blue-700 flex items-center">
+                            <i class="fas fa-tasks fa-fw mr-3"></i>Timeline&nbsp;&amp;&nbsp;Milestones
+                        </h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li><span class="font-bold text-blue-800">Month 4:</span> Production‑ready robot</li>
+                            <li><span class="font-bold text-blue-800">Month 5:</span> Demo to key customers</li>
+                            <li><span class="font-bold text-blue-800">Month 6:</span> Industry‑expo showcase</li>
+                            <li class="border-t border-gray-200 pt-4">
+                                <span class="font-bold text-blue-800">Primary Goal:</span> Pilot in one customer warehouse
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="card mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-10 rounded-2xl shadow-xl">
+                    <h2 class="text-2xl font-bold mb-6 leading-tight tracking-wide">
+                        Let’s build the future of automation together
+                    </h2>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                        <a href="mailto:human@rockfortrobotics.com" class="inline-flex items-center text-lg font-semibold hover:underline">
+                            <i class="fas fa-envelope fa-fw mr-3"></i>human@rockfortrobotics.com
+                        </a>
+                        <a href="https://rockfortrobotics.com" target="_blank" class="inline-flex items-center text-lg font-semibold hover:underline">
+                            <i class="fas fa-globe fa-fw mr-3"></i>rockfortrobotics.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer text-gray-500">16</div>
+        </section>
+        <!-- ====== End Slide 16 ====== -->
+
+
+    </div>
+
+    <div class="nav-buttons" style="display: none;">
+        <button onclick="prevSlide()" class="nav-button"><i class="fas fa-arrow-left"></i> Prev</button>
+        <button onclick="nextSlide()" class="nav-button">Next <i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlideIndex = 0;
+
+        function scrollToSlide(index) {
+            if (index >= 0 && index < slides.length) {
+                slides[index].scrollIntoView({
+                    behavior: 'smooth'
+                });
+                currentSlideIndex = index;
+            }
+        }
+
+        function nextSlide() {
+            scrollToSlide(currentSlideIndex + 1);
+        }
+
+        function prevSlide() {
+            scrollToSlide(currentSlideIndex - 1);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'ArrowDown':
+                case 'ArrowRight':
+                    nextSlide();
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                    prevSlide();
+                    break;
+            }
+        });
+    </script>
+
+</html>
