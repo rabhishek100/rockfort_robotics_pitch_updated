@@ -17,26 +17,20 @@
         body,
         .slide-container {
             -ms-overflow-style: none;
-            /* IE and Edge */
             scrollbar-width: none;
-            /* Firefox */
         }
 
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             margin: 0;
-            /* Ensure no default body margin interferes with full-page slides */
         }
 
         .slide-container {
             width: 100%;
             height: 100vh;
-            /* Full viewport height */
             overflow-y: auto;
-            /* Allow scrolling for content overflow on small screens */
             scroll-snap-type: y mandatory;
-            /* Snap scrolling for slides */
             display: flex;
             flex-direction: column;
         }
@@ -44,9 +38,7 @@
         .slide {
             width: 100%;
             min-height: 100vh;
-            /* Each slide takes full viewport height */
             padding: 40px 5%;
-            /* Responsive padding */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -54,10 +46,8 @@
             text-align: center;
             border-bottom: 1px solid #e0e0e0;
             scroll-snap-align: start;
-            /* Snap to the start of each slide */
             position: relative;
             box-sizing: border-box;
-            /* Ensure padding doesn't add to height for 100vh */
         }
 
         .slide-header {
@@ -78,17 +68,14 @@
 
         .slide-content {
             max-width: 1000px;
-            /* Max width for content */
             width: 100%;
         }
 
         h1 {
             font-size: 2.8rem;
-            /* Responsive font size */
             font-weight: 700;
             margin-bottom: 1rem;
             color: #1a202c;
-            /* Dark gray */
         }
 
         h2 {
@@ -96,7 +83,6 @@
             font-weight: 600;
             margin-bottom: 1.5rem;
             color: #2d3748;
-            /* Medium gray */
         }
 
         h3 {
@@ -104,13 +90,11 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
             color: #4a5568;
-            /* Lighter gray */
         }
 
         p,
         li {
             font-size: 1rem;
-            /* Base font size */
             line-height: 1.6;
             color: #4a5568;
             margin-bottom: 0.75rem;
@@ -121,18 +105,15 @@
             list-style-position: inside;
             text-align: left;
             padding-left: 0;
-            /* Tailwind might add padding, ensure it's reset if needed */
         }
 
         .highlight {
             color: #2563eb;
-            /* Blue highlight */
             font-weight: 600;
         }
 
         .accent-bg {
             background-color: #2563eb;
-            /* Blue */
         }
 
         .accent-text {
@@ -144,7 +125,6 @@
             border-radius: 12px;
             padding: 20px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            /* Standard Tailwind shadow-lg */
             margin-bottom: 20px;
             text-align: left;
         }
@@ -189,7 +169,6 @@
             background-color: #1d4ed8;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
@@ -252,7 +231,6 @@
             color: #1e3a8a;
         }
 
-        /* Spinner for loading state */
         .loader {
             border: 3px solid #f3f3f3;
             border-top: 3px solid #2563eb;
@@ -275,7 +253,6 @@
             }
         }
 
-        /* ---------------- New / Updated styles for Ask Slide ---------------- */
         .investment-ask {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -329,7 +306,7 @@
             <div class="slide-content text-center">
                 <img src="assets/rockfort-logo.png" alt="Rockfort Robotics Logo" class="mx-auto mb-8 shadow-lg" style="width: 150px; height: 150px;" onerror="this.src='https://placehold.co/150x150/cccccc/333333?text=Image+Error'">
                 <h1 class="text-5xl md:text-6xl font-bold mb-4" style="color: white;">Rockfort Robotics</h1>
-                <p class="text-xl md:text-2xl mb-8 text-indigo-200 text-center">Intelligent Robots for In-Aisle Warehouse SKU Picking & Restocking</p>
+                <p class="text-xl md:text-2xl mb-8 text-indigo-200 text-center">Versatile Robots for In-Aisle Warehouse SKU Picking, Order Consolidation & Restocking</p>
                 <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center">
                     <a href="https://www.youtube.com/watch?v=Mzhe6wYBsKY" target="_blank" class="inline-flex items-center px-5 py-2.5 bg-white text-indigo-700 font-semibold rounded-lg shadow-md hover:bg-indigo-100 transition">
                         <i class="fab fa-youtube mr-2 text-red-600 text-lg"></i> Watch Prototype Demo
@@ -374,14 +351,12 @@
             <div class="slide-content">
                 <h2 class="text-center mb-6">Introducing Tallboy: India's first robot capable of In-Aisle SKU picking, built for the world</h2>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <!-- Left: Enlarged Image + Demo link -->
                     <div class="flex flex-col items-center justify-center space-y-6">
                         <img src="assets/tallboy-robot-concept-1.png" alt="Tallboy Robot Prototype" class="rounded-lg shadow-xl w-full max-w-3xl" style="height:auto;" onerror="this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Error'">
                         <a href="https://www.youtube.com/watch?v=Mzhe6wYBsKY" target="_blank" class="inline-flex items-center font-semibold accent-text hover:underline">
                             <i class="fab fa-youtube mr-2 text-red-600"></i>Watch Our Prototype Demo
                         </a>
                     </div>
-                    <!-- Right: Features list -->
                     <div class="flex flex-col justify-center max-w-md w-full mx-auto space-y-4">
                         <ul class="space-y-4">
                             <li class="card flex items-center p-4 hover:shadow-lg transition">
@@ -499,88 +474,7 @@
             <div class="slide-footer">7</div>
         </section>
 
-        <!-- <section id="slide8" class="slide">
-            <div class="slide-header">Competitive Landscape</div>
-            <div class="slide-content">
-                <h2 class="text-center mb-8">Navigating the Market</h2>
-                <div class="grid md:grid-cols-2 gap-8 items-start">
-                    <div>
-                        <h3 class="mb-3">Key Insights (64 Companies Analyzed)</h3>
-                        <ul class="list-none space-y-3">
-                            <li class="card metric-card p-3"><span class="font-semibold">9 / 64</span> work on AI-based robotic SKU picking.</li>
-                            <li class="card metric-card p-3"><span class="font-semibold">15 / 64</span> work with minimal infrastructure.</li>
-                            <li class="card metric-card p-3"><span class="font-semibold">4 / 64</span> have low hardware costs.</li>
-                            <li class="card bg-red-100 border-l-4 border-red-500 p-3"><span class="font-semibold text-red-700">0 / 64</span> match all attributes required for our target market.</li>
-                        </ul>
-                        <p class="mt-4 text-sm"><em>Detailed Report: <a href="https://docs.google.com/document/d/1r0AJg4rgpgijRyHvj-HUofBqEbavstarpBwGD3jVb_E/edit?tab=t.0" class="text-blue-600 hover:underline">Competitor Analysis Report</a></em></p>
-                    </div>
-                    <div>
-                        <h3 class="mb-3">Primary Competitor: Brightpick</h3>
-                        <div class="card">
-                            <p><a href="https://brightpick.ai/" target="_blank" class="text-blue-600 hover:underline">Brightpick</a> offers a similar in-aisle picking product.</p>
-                            <p class="mt-2"><strong>However:</strong></p>
-                            <ul class="list-disc pl-5 mt-1 text-sm">
-                                <li>They have only deployed around 300 robots in total, which is a drop in the ocean.</li>
-                                <li>They claim they cannot keep up with demand, validating the need.</li>
-                            </ul>
-                        </div>
-                        <p class="mt-4 text-sm">Other potential competitors (e.g., Hand Plus Robotics, RightHand Robotics) exist but don't fully align with our specific USPs.</p>
-                    </div>
-                </div>
-                <p class="text-center mt-8 font-semibold">Our analysis shows a clear opportunity for a cost-effective, advanced solution tailored for India and similar markets.</p>
-            </div>
-            <div class="slide-footer">8</div>
-        </section> -->
 
-                <!-- <section id="slide8" class="slide">
-            <div class="slide-header">Competitive Landscape</div>
-            <div class="slide-content w-full">
-                <h2 class="text-center mb-6">A Crowded But Fragmented Market with a Clear Opening</h2>
-                <p class="text-center text-gray-600 mb-8 max-w-4xl mx-auto">The warehouse automation market is booming, with over 50 AMR vendors alone. However, most solutions are either too expensive, require massive infrastructure changes, or don't solve the critical in-aisle SKU picking problem. This leaves a significant gap for a flexible, AI-driven, and cost-effective solution like Rockfort.</p>
-                <div class="grid lg:grid-cols-3 gap-5">
-                    <div class="card flex flex-col">
-                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-truck-loading mr-2 accent-text"></i>AMR & SLAM Leaders</h3>
-                        <p class="text-sm font-semibold">Ex: Amazon Robotics, Locus, Fetch (Zebra), Clearpath</p>
-                        <div class="mt-2 flex-grow">
-                            <p class="text-sm">These companies excel at "goods-to-person" transport, moving shelves or pallets. Amazon, for instance, has deployed over 750,000 robots to cut picking times.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-dashed">
-                            <h4 class="font-bold text-green-600">Our Edge:</h4>
-                            <p class="text-sm mt-1">They don't pick individual items from shelves. Rockfort provides the missing piece: intelligent <span class="font-semibold">in-aisle SKU picking</span> that integrates with existing layouts without costly overhauls.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card flex flex-col">
-                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-cubes mr-2 accent-text"></i>High-Density AS/RS</h3>
-                        <p class="text-sm font-semibold">Ex: Exotec, Hai Robotics</p>
-                        <div class="mt-2 flex-grow">
-                            <p class="text-sm">These systems offer incredible density and efficiency (up to 99.9% accuracy). Hai Robotics has shown a 67% reduction in labor costs with its solutions.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-dashed">
-                            <h4 class="font-bold text-green-600">Our Edge:</h4>
-                            <p class="text-sm mt-1">Their strength requires a weakness: massive upfront investment and proprietary infrastructure (bins, racks). Rockfort is <span class="font-semibold">infrastructure-light</span>, making it accessible for SMEs and pilots.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card flex flex-col">
-                        <h3 class="font-semibold border-b pb-2 mb-3"><i class="fas fa-eye mr-2 accent-text"></i>Vision AI Specialists</h3>
-                        <p class="text-sm font-semibold">Ex: Vecna, Gather AI, RightHand</p>
-                        <div class="mt-2 flex-grow">
-                            <p class="text-sm">These companies pioneer advanced perception for robotics. Gather AI's drones, for example, save clients over $250,000 annually on inventory audits alone.</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-dashed">
-                            <h4 class="font-bold text-green-600">Our Edge:</h4>
-                            <p class="text-sm mt-1">They often provide a component (the vision system) or a single-task solution (inventory). Rockfort offers a <span class="font-semibold">fully integrated end-to-end robot</span> that combines navigation, perception, and manipulation at a disruptive price point.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 text-center p-4 bg-blue-50 rounded-lg">
-                    <p class="font-semibold text-gray-800">Conclusion: While many players address parts of the problem, <span class="accent-text">no competitor matches our unique blend</span> of low-cost hardware, AI-first SKU picking, and a minimal-infrastructure approach, creating a clear and defensible market opportunity.</p>
-                </div>
-            </div>
-            <div class="slide-footer">8</div>
-        </section> -->
 
         <section id="slide8" class="slide">
     <div class="slide-header">Competitive Landscape</div>
@@ -660,26 +554,22 @@
             <div class="slide-footer">9</div>
         </section>
 
-        <!-- ====== START: SLIDE 10 (Unit Economics) ====== -->
         <section id="slide10" class="slide">
             <div class="slide-header">Unit Economics (Per Robot, 10‑Year Lifetime)</div>
             <div class="slide-content">
                 <h2 class="text-center mb-8">Strong Profitability & Margins</h2>
                 <p class="text-center mb-6 text-sm">(Calculations with 6 % discount rate for time &amp; inflation adjustment)</p>
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Adjusted Costs -->
                     <div class="card">
                         <h3 class="text-red-600"><i class="fas fa-arrow-down mr-2"></i>Total Adjusted&nbsp;Costs</h3>
                         <p class="value-emphasis text-red-700">₹35.72 Lakhs</p>
                         <p class="text-xs mt-1">Manufacturing: ₹20 L • Other: ₹1 L • Servicing: PV of ₹2 L / yr for 10 yrs</p>
                     </div>
-                    <!-- Adjusted Income -->
                     <div class="card">
                         <h3 class="text-green-600"><i class="fas fa-arrow-up mr-2"></i>Total Adjusted&nbsp;Income</h3>
                         <p class="value-emphasis text-green-700">₹1.14 Crore</p>
                         <p class="text-xs mt-1">Recurring: PV of&nbsp;$18 K / yr for 10 yrs</p>
                     </div>
-                    <!-- Key Metrics -->
                     <div class="card md:col-span-2 bg-indigo-50 border-indigo-500 border-l-4">
                         <h3 class="text-indigo-700"><i class="fas fa-chart-pie mr-2"></i>Key Financial Metrics</h3>
                         <div class="grid sm:grid-cols-2 gap-4 mt-3">
@@ -698,29 +588,24 @@
             </div>
             <div class="slide-footer">10</div>
         </section>
-        <!-- ====== END: SLIDE 10 ====== -->
 
-        <!-- ====== START: SLIDE 11 (Customer Value Proposition) ====== -->
         <section id="slide11" class="slide bg-green-50">
             <div class="slide-header">Customer Value Proposition</div>
             <div class="slide-content text-center">
                 <h2 class="mb-10 text-green-700">Significant Cost Savings &amp; ROI</h2>
                 <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Payback -->
                     <div class="card p-6 border-t-4 border-green-500">
                         <i class="fas fa-undo text-4xl text-green-600 mb-3"></i>
                         <h3 class="text-xl font-semibold">Payback&nbsp;Period</h3>
                         <p class="text-3xl font-bold my-2 text-green-700">0&nbsp;Months</p>
                         <p class="text-sm text-gray-600">Time to recover robot cost.</p>
                     </div>
-                    <!-- Annual Net Saving -->
                     <div class="card p-6 border-t-4 border-green-500">
                         <i class="fas fa-chart-line text-4xl text-green-600 mb-3"></i>
                         <h3 class="text-xl font-semibold">Annual Net Saving</h3>
                         <p class="text-3xl font-bold my-2 text-green-700">$103.5 K</p>
                         <p class="text-sm text-gray-600">Per robot after all running costs.</p>
                     </div>
-                    <!-- 10‑Year Net Saving -->
                     <div class="card p-6 border-t-4 border-green-500">
                         <i class="fas fa-piggy-bank text-4xl text-green-600 mb-3"></i>
                         <h3 class="text-xl font-semibold">10‑Year Net Saving</h3>
@@ -737,7 +622,6 @@
             </div>
             <div class="slide-footer">11</div>
         </section>
-        <!-- ====== END: SLIDE 11 ====== -->
 
         <section id="slide12" class="slide">
             <div class="slide-header">Traction & Pipeline</div>
@@ -770,7 +654,6 @@
         <section id="slide13" class="slide">
             <div class="slide-content" style="max-width: 1200px; padding: 0 20px;">
                 <h2 class="text-center mb-6">Experienced Founders with a Track Record</h2>
-                <!-- Team Members Grid -->
                 <div class="grid md:grid-cols-3 gap-6 mb-6">
                     <div class="card text-center p-4 hover:shadow-xl transition-shadow duration-300">
                         <img src="assets/arivind.jpg" alt="Arivind Krishnan" class="w-24 h-24 rounded-full mx-auto mb-3 object-cover shadow-md" onerror="this.src='https://placehold.co/96x96/2563eb/ffffff?text=AK'">
@@ -812,7 +695,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Key Achievements Grid -->
                 <div class="grid md:grid-cols-3 gap-4">
                     <div class="card bg-green-50 border-l-4 border-green-500 p-4">
                         <h3 class="text-green-700 mb-2 text-sm font-bold flex items-center">
@@ -868,12 +750,10 @@
             <div class="slide-footer text-indigo-300">14</div>
         </section>
 
-        <!-- ========= Updated Ask Slide ========= -->
         <section id="slide15" class="slide bg-white">
             <div class="slide-header text-gray-600">The Ask</div>
             <div class="slide-content">
                 <div class="grid md:grid-cols-2 gap-8 items-start">
-                    <!-- Ask Box -->
                     <div class="investment-ask text-center md:text-left">
                         <i class="fas fa-rocket text-5xl md:text-6xl mb-4 md:mb-0"></i>
                         <div>
@@ -882,7 +762,6 @@
                         </div>
                     </div>
 
-                    <!-- Cap Table (Investment Context) -->
                     <div class="bg-purple-50 p-6 rounded-lg shadow-sm border border-purple-200 card md:mt-0">
                         <h3 class="text-base font-bold text-purple-700 mb-3 flex items-center">
                             <i class="fas fa-chart-pie mr-2"></i>Cap Table
@@ -908,7 +787,6 @@
                 </h2>
 
                 <div class="grid gap-8 md:grid-cols-2">
-                    <!-- Use of Funds -->
                     <div class="card p-8 border-t-4 border-green-600">
                         <h3 class="text-xl font-semibold mb-6 text-green-700 flex items-center">
                             <i class="fas fa-coins fa-fw mr-3"></i>Use&nbsp;of&nbsp;Funds
@@ -941,7 +819,6 @@
                         </ul>
                     </div>
 
-                    <!-- Timeline & Milestones -->
                     <div class="card p-8 border-t-4 border-blue-600">
                         <h3 class="text-xl font-semibold mb-6 text-blue-700 flex items-center">
                             <i class="fas fa-tasks fa-fw mr-3"></i>Timeline&nbsp;&amp;&nbsp;Milestones
@@ -957,7 +834,6 @@
                     </div>
                 </div>
 
-                <!-- Contact -->
                 <div class="card mt-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-10 rounded-2xl shadow-xl">
                     <h2 class="text-2xl font-bold mb-6 leading-tight tracking-wide">
                         Let’s build the future of automation together
