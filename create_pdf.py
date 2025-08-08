@@ -3,7 +3,7 @@ import os
 import re
 from PIL import Image
 
-def images_to_pdf(folder, output_pdf="combined.pdf"):
+def images_to_pdf(folder, output_pdf="Rockfort Robotics Pitch Deck.pdf"):
     # Gather image files
     files = os.listdir(folder)
     imgs = [f for f in files if f.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.gif', '.tiff'))]
@@ -33,5 +33,5 @@ def images_to_pdf(folder, output_pdf="combined.pdf"):
     print(f"→ {out_path} ({len(pages)} pages)")
 
 if __name__ == "__main__":
-    cwd = "C:\\Users\\abhis\\OneDrive\\Desktop\\pitch_images"
+    cwd = "C:\\Users\\abhis\\OneDrive\\Desktop\\Rockfort Robotics Pre-Seed Pitch Deck US and Off the Shelf modified\\pitch_images"
     images_to_pdf(cwd)
